@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `address_book_db`
 --
+CREATE DATABASE IF NOT EXISTS `address_book_db` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `address_book_db`;
 
 -- --------------------------------------------------------
 
@@ -44,7 +46,10 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`id`, `city`, `created_at`, `state`, `street`, `updated_at`, `username`, `zip`) VALUES
-(1, 'springboro', '2020-02-12 08:57:43', 'OH', '112 winding creek dr', '2020-02-12 08:57:43', 'userA', '45066');
+(1, 'springboro', '2020-02-12 08:57:43', 'OH', '112 winding creek dr', '2020-02-12 08:57:43', 'userA', '45066'),
+(2, 'Beevercreek', '2020-02-12 08:57:43', 'OH', '2 central st', '2020-02-12 08:57:43', 'userB', '45066'),
+(3, 'centerville', '2020-02-12 08:57:43', 'OH', '3 south main blvd', '2020-02-12 08:57:43', 'userC', '45458'),
+(4, 'Dayton', '2020-02-12 08:57:43', 'OH', '4 main st ', '2020-02-12 08:57:43', 'userD', '45459');
 
 --
 -- Indexes for dumped tables

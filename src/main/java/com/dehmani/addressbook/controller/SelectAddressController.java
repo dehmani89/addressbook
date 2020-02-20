@@ -21,13 +21,29 @@ public class SelectAddressController {
     AddressRepository addressRepository;
 
     @GetMapping("/select/address")
-    public List<Address> getAllNotes() {
+    public List<Address> getAllAddresses() {
         return addressRepository.findAll();
     }
 
     @GetMapping("/select/address/{id}")
-    public Address getNoteById(@PathVariable(value = "id") Long addressId) {
+    public Address getAddressById(@PathVariable(value = "id") Long addressId) {
         return addressRepository.findById(addressId)
                 .orElseThrow(() -> new ResourceNotFoundException("Address", "id", addressId));
     }
+
+    @GetMapping("/select/address/username/{username}")
+    public List<Address> getAddressByUsername(@PathVariable(value = "username") String username) {
+        List<Address> isAddressExist = null;
+        return addressRepository.findByUsername(username);
+
+       /* if(isAddressExist.size() == 0){
+            System.out.println("User Address doesn't Exist, Insert");
+            return addressRepository.findByUsername(username);
+        }else{
+            System.out.println("User Address Exist, Let the client know to pick a new username");
+            new ResourceNotFoundException("Address", "username", username);
+        }*/
+    }
+
+
 }
